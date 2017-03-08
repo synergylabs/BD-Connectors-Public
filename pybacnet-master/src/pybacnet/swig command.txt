@@ -1,0 +1,7 @@
+echo In order to function correctly, please ensure the following environment variables are correctly set: 
+echo PYTHON_INCLUDE: %PYTHON_INCLUDE% 
+echo PYTHON_LIB: %PYTHON_LIB% 
+echo on 
+I:\Research\BACNet\swigwin-3.0.0\swig.exe -II:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\include -python %(FullPath) 
+
+Need to move stdint.h header file, otherwise gives error

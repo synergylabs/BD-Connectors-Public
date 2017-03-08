@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F985B1AC-8C71-4724-B0FC-5B49DBD56EF5}</ProjectGuid>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <Keyword>ManagedCProj</Keyword>
+    <RootNamespace>bacnet</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CLRSupport>false</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CLRSupport>false</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>_$(ProjectName)</TargetName>
+    <TargetExt>.pyd</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>_$(ProjectName)</TargetName>
+    <TargetExt>.pyd</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;USE_INADDR;BACDL_BIP;TSM_ENABLED;BACAPP_PRINT_ENABLED;BACTEXT_PRINT_ENABLED;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\ports\win32;I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\demo\object;I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\include;C:\Python27\include;I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\pthread\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;iphlpapi.lib;pthreadVC2.lib;python27.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\pthread\lib;I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\pthread\dll;C:\Python27\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;NDEBUG;USE_INADDR;BACDL_BIP;TSM_ENABLED;BACAPP_PRINT_ENABLED;BACTEXT_PRINT_ENABLED;BIP_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories>I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\ports\win32;I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\demo\object;I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\pthread\include;I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\include;C:\Python27\include;H:\Program Files\Microsoft SDKs\Windows\v5.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>ws2_32.lib;iphlpapi.lib;python27.lib;pthreadVC2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\pthread\lib;I:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\pthread\dll;C:\Python27\libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <OutputFile>_bacnet.pyd</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BACnet Object Definitions\BACnet Object Definitions.vcxproj">
+      <Project>{6a8668e1-f08e-496b-b624-d6c05001806d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\BACnet Stack Library\BACnet Stack Library.vcxproj">
+      <Project>{e9a65567-b028-4278-881d-674604b2e126}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bacnet.c" />
+    <ClCompile Include="bacnet_wrap.c" />
+    <ClCompile Include="bip-init.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="bacnet.i">
+      <FileType>Document</FileType>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">echo In order to function correctly, please ensure the following environment variables are correctly set: 
+echo PYTHON_INCLUDE: %PYTHON_INCLUDE% 
+echo PYTHON_LIB: %PYTHON_LIB% 
+echo on 
+swig.exe -II:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\include -II:\Research\BACNet\pybacnet-master\src\bacnet-stack-0.6.0\pthread\include -python "%(FullPath)" </Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(InputPath)_wrap.c;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

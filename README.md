@@ -1,2 +1,4 @@
-# BD-Connectors-Public
-BuildingDepot :: Connector :: Public connectors
+BD-Connectors
+=============
+
+BuildingDepot General Connector Repository.

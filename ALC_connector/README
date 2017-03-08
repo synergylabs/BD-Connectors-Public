@@ -1,0 +1,50 @@
+A Guide to Using the BuildingDepot 3.0 Automated Logic Connector:
+
+There are two parts to the BDALC connector. First, the Jar file (ALCJavaConnector.jar), second the Python file (BDCon.py).
+
+The Jar file must be run first for any connector. The Jar file handles communication with the BacNet. To run the Jar file, type 'java -jar ALCJavaConnector.jar <PortNumber>'.
+
+In this case, PortNumber is the port that you wish to use to communicate with the Python file. Recommended ports numbers are 25335-25500. After running this, a "GateWay Server Started" should be printed in the terminal, signifying success.
+
+Now, the Python file, BDCon.py. The python file handles communication with BuildingDepot, including sensor instantiation and data storage. To run the Python file, type 'python BDCon.py <URL> <Institution> <Building> <DataFile> <LocalDevicePort> <BacNetCommunicationPort> <JavaCommunicationPort> <YourIPAddress> <ConfigFile>'
+
+This is a large number of arguments, so let's break it down. 
+
+The URL is the URL of the CentralService of the BD installation that you wish to communicate with. Notably, it MUST END in :81, to signify communicating with the CentralService. 
+
+Institution is the organization that Data is being collected for. This is a string designation, with identification being the only purpose.
+
+Building is the building that the data belongs to. Please Note, this must be the same as a currently existing building in your GioTTO installation. 
+
+DataFile. This is the data sensor file, and it is used to determine what values are needed to communicate with the BacNet for each given sensor. The file should be a CSV. The format of the datafile, with comma-separated, is:
+
+1) BuildingName (name of the building the sensor is in)
+2) BuildingFloor (Floor of the building the sensor is in)
+3) BuildingRoom (room of the building the sensor is in)
+4) SensorName (Name of the Sensor)
+5) Tags (MetaData of the Sensor. Not necessary for most communication, can be left blank)
+6) IP Address of target sensor
+7) Type of target sensor (e.g. Analog_Input (0) Binary_Input (5), etc.)
+8) SensorID
+9) NetworkNumber of Sensor
+10) Address of Sensor (Mac Address of the Controller)
+
+All values except 5) Tags, are necessary for running the Connector. Importantly, modifying the connector can allow you to do without some of these values (some are used only for the naming of the sensor). Key values are 6,7,8,9,and 10. 
+
+LocalDevicePort. Port that the JavaEnd of the Connector will use for communication with the BacNet. Must be unique for each pair of communications (e.g. two running instances of the Connector should have different values for this). Recommended port range is 1230-1300.
+
+BacNetCommunicationPort. Port that the JavaEnd of the Connector will use for communication with the BacNet. Must be unique for each pair of communications. (e.g. two running instances of the Connector should have difference values for this). Recommended port Range is 47800-48000.
+
+JavaCommunicationPort. Port that python file will use to communicate with the JavaEnd of the connector. NOTE! MUST be the SAME as the <PortNumber> arguments when running the jar file!!!!!!
+
+YourIPAddres. IP Address of the machine you're currently using. 
+
+ConfigFile. FileContaining information needed to communicate with the BD installation. This includes:
+
+1) Client_ID
+2) Client_Secret
+3) URL of the BD installation. 
+
+1)/2) can be found in the BD installation for any given user. Enter each of these as a separate line (see config.txt)
+
+
