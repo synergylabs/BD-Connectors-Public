@@ -1,3 +1,24 @@
+TO RUN THIS CONNECTOR, YOU MUST HAVE YOUR BD INSTANCE SET UP PROPERLY. 
+
+This includes a few one time steps that need to be done once by an administrator priviliges account in the BD Instance. 
+
+First, in the 'TagType' tab of the BD centralservice instance, add the following tagtypes:
+
+Institution
+building
+floor
+room
+ip
+networknumber
+address
+ObjectType
+objectID
+
+In the 'BuildingTemplate' tab of the BD centralserivce instance, create a Building Tempalte (name it anything apprporiate), and add all of the above tagtypes to it. 
+
+In the 'Building' tab of the BD centralservice intance, create a building (name it anything appropraite), which uses the BuildingTemplate defined above. This must be the SAME as the building used in the 4th argument listed below.
+
+
 A Guide to Using the BuildingDepot 3.0 Automated Logic Connector:
 
 There are two parts to the BDALC connector. First, the Jar file (ALCJavaConnector.jar), second the Python file (BDCon.py).
