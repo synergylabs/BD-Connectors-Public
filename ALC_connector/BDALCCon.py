@@ -33,7 +33,8 @@ def sensorlist(inputurl, vals, name):
   header = {"Authorization": "bearer " + access_token, 'content-type':'application/json'}
   url = inputurl
   url1 = url+"api/search"
-  data = {"data": {"Tags": ["Insitution:" + vals[0],"building:GHC", 'floor:'+vals[1], 'room:' + vals[2], +'ip:'+vals[3], 'networknumber:'+vals[4], 'address:'+vals[5], 'ObjectType'+vals[6], 'objectID:'+vals[7]}}
+
+  data = {"data": {"Tags": ["Institution:" + vals[0], 'floor:'+vals[1], 'room:' + vals[2], +'ip:'+vals[3], 'networknumber:'+vals[4], 'address:'+vals[5], 'ObjectType'+vals[6], 'objectID:'+vals[7]}}
 
   #data = {"data": {"ID": ["BasicBD:"+name]}}
   response = requests.post(url1, headers = header,data =json.dumps(data), verify=False)
@@ -269,4 +270,4 @@ if __name__ == '__main__':
 		count +=1
     Ourl = URL
  #   print URL, Institution, DataFile, Building
-    connector.run(URL, "Caarnegie Mellon University", Building, DataFile, LDPort, NetworkPort, JavaPort, SourceIP)
+    connector.run(URL, Institution, Building, DataFile, LDPort, NetworkPort, JavaPort, SourceIP)
