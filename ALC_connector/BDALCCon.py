@@ -183,8 +183,8 @@ class Connector(object):
 		ip = partial[5]
 		objecttype = partial[6]
 		objectID = partial[7]
-		networknum = partial[9]
-		address = partial[10]
+		networknum = partial[8]
+		address = partial[9]
 		port = NetworkPort
 		#Data Filtering
 		if(objecttype == '' or objectID == '' or address ==''):
