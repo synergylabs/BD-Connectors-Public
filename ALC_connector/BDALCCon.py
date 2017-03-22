@@ -34,7 +34,7 @@ def sensorlist(inputurl, vals, name):
   url = inputurl
   url1 = url+"api/search"
 
-  data = {"data": {"Tags": ["Institution:" + vals[0], 'floor:'+vals[1], 'room:' + vals[2], +'ip:'+vals[3], 'networknumber:'+vals[4], 'address:'+vals[5], 'ObjectType'+vals[6], 'objectID:'+vals[7]]}}
+  data = {"data": {"Tags": ["Institution:" + str(vals[0]), "floor:"+str(vals[1]), "room:" + str(vals[2]), "ip:"+str(vals[3]), "networknumber:"+str(vals[4]), "address:"+str(vals[5]), "ObjectType:"+str(vals[6]), "objectID:"+str(vals[7])]}}
 
   #data = {"data": {"ID": ["BasicBD:"+name]}}
   response = requests.post(url1, headers = header,data =json.dumps(data), verify=False)
@@ -171,6 +171,7 @@ class Connector(object):
         val = 0
 	oldip = ""
 	for line in sensors:
+		print "happy"
 		#Parse CSV Datafile. The current set up is for GHC buildings. The necessary elements are ip, objecttype, objectID, networknum, and address. The rest are used for naming
 		partial = line.strip().split(',')
 		null = 0
@@ -183,8 +184,8 @@ class Connector(object):
 		ip = partial[5]
 		objecttype = partial[6]
 		objectID = partial[7]
-		networknum = partial[8]
-		address = partial[9]
+		networknum = partial[8] #
+		address = partial[9] #
 		port = NetworkPort
 		#Data Filtering
 		if(objecttype == '' or objectID == '' or address ==''):
@@ -199,7 +200,7 @@ class Connector(object):
 		#If the sensor doesn't exist (only at installation), create it
 		if len(Sensors['result']) < 1:
 			#Create sensor if it doenst exist
-
+			print "happy2"
 			#Add building Tags to BD, if they don't aleady exist
 			post_building_tag("Institution", str(Institution))
 			post_building_tag("building", Building)

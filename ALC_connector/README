@@ -27,7 +27,7 @@ The Jar file must be run first for any connector. The Jar file handles communica
 
 In this case, PortNumber is the port that you wish to use to communicate with the Python file. Recommended ports numbers are 25335-25500. After running this, a "GateWay Server Started" should be printed in the terminal, signifying success.
 
-Now, the Python file, BDCon.py. The python file handles communication with BuildingDepot, including sensor instantiation and data storage. To run the Python file, type 'python BDCon.py <URL> <Institution> <Building> <DataFile> <LocalDevicePort> <BacNetCommunicationPort> <JavaCommunicationPort> <YourIPAddress> <ConfigFile>'
+Now, the Python file, BDCon.py. The python file handles communication with BuildingDepot, including sensor instantiation and data storage. To run the Python file, type 'python BDCon.py <URL> <Institution> <Building> <DataFile> <RunningMachinePort> <BacNetCommunicationPort> <JavaCommunicationPort> <IPAddressOfMachineRunningScript> <ConfigFile>'
 
 This is a large number of arguments, so let's break it down. 
 
@@ -58,7 +58,7 @@ BacNetCommunicationPort. Port that the JavaEnd of the Connector will use for com
 
 JavaCommunicationPort. Port that python file will use to communicate with the JavaEnd of the connector. NOTE! MUST be the SAME as the <PortNumber> arguments when running the jar file!!!!!!
 
-YourIPAddres. IP Address of the machine you're currently using. 
+IPAddressOfMachineRunningScript. IP Address of the inteface of the machine you're currently using to run this program. If you don't care which interface is used, simply send '0.0.0.0' 
 
 ConfigFile. FileContaining information needed to communicate with the BD installation. This includes:
 
