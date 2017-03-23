@@ -66,6 +66,6 @@ ConfigFile. FileContaining information needed to communicate with the BD install
 2) Client_Secret
 3) URL of the BD installation. 
 
-1)/2) can be found in the BD installation for any given user. Enter each of these as a separate line (see config.txt)
+1)/2) can be found in the BD installation for any given user. Enter each of these as a separate line (see config.txt). Client_ID and Client_Secret can be found in the oauth tab of the BD installation
 
 
